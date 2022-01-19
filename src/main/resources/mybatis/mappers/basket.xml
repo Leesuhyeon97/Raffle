@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <mapper namespace="com.example.demo.dao.BasketDAO">
+ 	<insert id="insertBasket" parameterType="basketVO">
+ 		insert into shoebasket(id,spcode,quantity) values(#{id}, #{spcode}, 1)
+ 	</insert>
+ 	
+ 	<select id="selectQuantityBySpcode" parameterType="basketVO" resultType="int">
+ 		select quantity from shoebasket where id=#{id} and spcode=#{spcode}
+ 	</select>
+ 	
+ 	<update id="updateQuantityBySpcode" parameterType="basketVO">
+ 		update shoebasket set quantity=#{quantity} where id=#{id} and spcode=#{spcode}
+ 	</update>
+ 	
+ 	<select id="selectAllProductById" parameterType="String" resultType="basketVO">
+ 		select * from shoebasket where id=#{id}
+ 	</select>
+ 	
+ </mapper>
